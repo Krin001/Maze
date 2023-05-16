@@ -20,7 +20,7 @@ public class BossHealth : MonoBehaviour
         mi.enabled = false;
         he.enabled = false;
 
-        triforce.SetActive(false);
+        
         
     }
 
@@ -29,7 +29,9 @@ public class BossHealth : MonoBehaviour
     {
         if(health <= 0)
         {
-            triforce.SetActive(true);
+            GameObject.Find("Ending").GetComponent<Animator>().SetBool("Win", true);
+            GameObject.Find("Player").GetComponent<textControler>().textNum = 39;
+            StartCoroutine(GameObject.Find("Player").GetComponent<textControler>().ending());
             Destroy(gameObject);
 
         }

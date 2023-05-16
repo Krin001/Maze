@@ -85,6 +85,11 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = room;
                 CharCon.enabled = true;
+
+                if(next == 9)
+                {
+                    GetComponent<textControler>().textNum = 26;
+                }
                 
             }
             else
@@ -96,7 +101,7 @@ public class Teleport : MonoBehaviour
                 next = -1;
                 attempt++;
 
-                if(attempt > 7)
+                if(attempt == 7)
                 {
                     GetComponent<textControler>().textNum++;
                 }
@@ -117,6 +122,11 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = room;
                 CharCon.enabled = true;
+
+                if(next == 9)
+                {
+                    GetComponent<textControler>().textNum = 26;
+                }
                 
                 
             }
@@ -128,7 +138,7 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = true;
                 attempt++;
 
-                if(attempt > 7)
+                if(attempt == 7)
                 {
                     GetComponent<textControler>().textNum++;
                 }
@@ -149,6 +159,11 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = room;
                 CharCon.enabled = true;
+
+                if(next == 9)
+                {
+                    GetComponent<textControler>().textNum = 26;
+                }
                 
             }
             else
@@ -159,7 +174,7 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = true;
                 attempt++;
 
-                if(attempt > 7)
+                if(attempt == 7)
                 {
                     GetComponent<textControler>().textNum++;
                 }
@@ -181,6 +196,12 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = room;
                 CharCon.enabled = true;
+
+                if(next == 9)
+                {
+
+                    GetComponent<textControler>().textNum = 26;
+                }
                 
 
             }
@@ -192,7 +213,7 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = true;
                 attempt++;
 
-                if(attempt > 7)
+                if(attempt == 7)
                 {
                     GetComponent<textControler>().textNum++;
                 }

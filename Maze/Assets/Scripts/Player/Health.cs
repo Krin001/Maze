@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -19,7 +20,10 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       if(health <= 0)
+       {
+            SceneManager.LoadScene("Maze");
+       }
     }
 
     void OnCollisionEnter(Collision enemy)

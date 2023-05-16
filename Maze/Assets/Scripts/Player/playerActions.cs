@@ -148,8 +148,7 @@ public class playerActions : MonoBehaviour
             
             if(camMove)
             {
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                
                 
                 
                 Vector2 dpos = mouse.delta.ReadValue();
@@ -163,6 +162,7 @@ public class playerActions : MonoBehaviour
                 cam.transform.localRotation = Quaternion.Euler(eulers[0], 0, 0);
                 transform.rotation = Quaternion.Euler(0,eulers[1], 0);
             }
+            
             
         }
 
