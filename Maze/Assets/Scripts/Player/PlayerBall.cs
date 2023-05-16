@@ -8,7 +8,7 @@ public class PlayerBall : MonoBehaviour
 
     public Vector3 ball;
 
-    public bool coolDn = false;
+    public bool coolDn, canShoot;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +19,19 @@ public class PlayerBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(coolDn == false)
+        if(canShoot)
         {
-            if (Input.GetMouseButtonDown(0))
+            if(coolDn == false)
             {
-                ball = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
-                Instantiate(snBall, ball, Quaternion.identity);
-                StartCoroutine(coolDown());
+                if (Input.GetMouseButtonDown(0))
+                {
+                    ball = new Vector3(transform.position.x, transform.position.y+1, transform.position.z);
+                    Instantiate(snBall, ball, Quaternion.identity);
+                    StartCoroutine(coolDown());
+                }
             }
         }
+        
         
         
     }

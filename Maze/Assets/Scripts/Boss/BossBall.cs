@@ -34,26 +34,30 @@ public class BossBall : MonoBehaviour
 
     public IEnumerator attack()
     {
-        int throwSide = rand;
+        while(true)
+        {
+            int throwSide = rand;
 
-        if(rand == 0)
-        {
-            Right1.GetComponent<Animator>().SetBool("throw", true);
-            Right2.GetComponent<Animator>().SetBool("throw", true);
+            if(rand == 0)
+            {
+                Left1.GetComponent<Animator>().SetBool("throw", true);
+                Left2.GetComponent<Animator>().SetBool("throw", true);
+            }
+            else
+            {
+                Right1.GetComponent<Animator>().SetBool("throw", true);
+                Right2.GetComponent<Animator>().SetBool("throw", true);
+            }
+            yield return new WaitForSeconds(.8f);
+            Instantiate(snBall, ball[throwSide], Quaternion.identity);
+            Right1.GetComponent<Animator>().SetBool("throw", false);
+            Right2.GetComponent<Animator>().SetBool("throw", false);
+            Left1.GetComponent<Animator>().SetBool("throw", false);
+            Left2.GetComponent<Animator>().SetBool("throw", false);
+            
+            yield return new WaitForSeconds(1f);
         }
-        else
-        {
-            Left1.GetComponent<Animator>().SetBool("throw", true);
-            Left2.GetComponent<Animator>().SetBool("throw", true);
-        }
-        yield return new WaitForSeconds(1f);
-        Instantiate(snBall, ball[throwSide], Quaternion.identity);
-        Right1.GetComponent<Animator>().SetBool("throw", false);
-        Right2.GetComponent<Animator>().SetBool("throw", false);
-        Left1.GetComponent<Animator>().SetBool("throw", false);
-        Left2.GetComponent<Animator>().SetBool("throw", false);
         
-        yield return new WaitForSeconds(1f);
 
         
     }

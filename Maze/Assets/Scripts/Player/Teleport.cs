@@ -26,6 +26,8 @@ public class Teleport : MonoBehaviour
 
     public AudioSource lW;
 
+    public int attempt = 1;
+
     
     // Start is called before the first frame update
     void Start()
@@ -92,6 +94,12 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = true;
                 
                 next = -1;
+                attempt++;
+
+                if(attempt > 7)
+                {
+                    GetComponent<textControler>().textNum++;
+                }
             }
         }
 
@@ -118,7 +126,12 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = start;
                 CharCon.enabled = true;
-                
+                attempt++;
+
+                if(attempt > 7)
+                {
+                    GetComponent<textControler>().textNum++;
+                }
                 
             }
         }
@@ -144,7 +157,12 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = start;
                 CharCon.enabled = true;
-                
+                attempt++;
+
+                if(attempt > 7)
+                {
+                    GetComponent<textControler>().textNum++;
+                }
                 
 
             }
@@ -172,7 +190,12 @@ public class Teleport : MonoBehaviour
                 CharCon.enabled = false;
                 transform.position = start;
                 CharCon.enabled = true;
-                
+                attempt++;
+
+                if(attempt > 7)
+                {
+                    GetComponent<textControler>().textNum++;
+                }
                 
             }
         }
