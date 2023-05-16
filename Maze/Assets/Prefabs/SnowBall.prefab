@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2095379071582434156}
   - component: {fileID: 2095379071582434157}
   - component: {fileID: 2095379071582434158}
+  - component: {fileID: 3457994374283750830}
   m_Layer: 0
   m_Name: SnowBall
   m_TagString: SnowBall
@@ -150,4 +151,17 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!135 &3457994374283750830
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095379071582434167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.55
   m_Center: {x: 0, y: 0, z: 0}

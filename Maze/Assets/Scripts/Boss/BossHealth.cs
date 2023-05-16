@@ -31,8 +31,8 @@ public class BossHealth : MonoBehaviour
         {
             GameObject.Find("Ending").GetComponent<Animator>().SetBool("Win", true);
             GameObject.Find("Player").GetComponent<textControler>().textNum = 39;
-            StartCoroutine(GameObject.Find("Player").GetComponent<textControler>().ending());
-            Destroy(gameObject);
+            
+            gameObject.SetActive(false);
 
         }
         

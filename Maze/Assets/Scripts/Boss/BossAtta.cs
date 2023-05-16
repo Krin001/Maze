@@ -54,7 +54,7 @@ public class BossAtta : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(hit.tag == "Wall" || hit.tag == "PlaySnow")
+        if(hit.tag == "Wall" || hit.tag == "PlaySnow" || hit.tag == "Ground")
         {
             Destroy(gameObject);
         }

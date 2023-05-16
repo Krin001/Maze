@@ -6,12 +6,14 @@ using TMPro;
 public class textControler : MonoBehaviour
 {
     public TMP_Text fairy;
-    public GameObject textButton,Fairy1, Fairy2, Queen, QueenTarget,fountain;
+    public GameObject textButton,Fairy1, Fairy2, Queen, QueenTarget,fountain, endposition;
     public int textNum;
 
     public bool spaceText;
 
     public string[] fairytext;
+
+    public float timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,36 +40,45 @@ public class textControler : MonoBehaviour
                 GetComponent<PlayerBall>().canShoot = true;
             }
             
+            
         }
         else
         {
+            fairy.enabled = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Fairy1.SetActive(true);
-            Fairy2.SetActive(true);
-            if(textNum < 26)
+            
+            
+            if(textNum < 39)
             {
-                transform.LookAt(Fairy1.transform);
+                Fairy1.SetActive(true);
+                Fairy2.SetActive(true);
+                textButton.SetActive(true);
+
+                if(textNum < 26)
+                {
+                    transform.LookAt(Fairy1.transform);
+                }
+                else if(textNum >= 26 || textNum < 39)
+                {
+                    transform.LookAt(Fairy2.transform);
+                }
             }
-            else if(textNum >= 26 || textNum < 39)
+
+            else if(textNum >= 39)
             {
-                transform.LookAt(Fairy2.transform);
-            }
-            else
-            {
+                transform.position = endposition.transform.position;
+                Fairy1.SetActive(false);
+                Fairy2.SetActive(false);
                 GetComponent<PlayerBall>().canShoot = false;
                 Queen.SetActive(true);
                 fountain.SetActive(true);
                 transform.LookAt(QueenTarget.transform);
-            }
-            
-            if(textNum < 39)
-            {
                 fairy.enabled = true;
-                textButton.SetActive(true);
+                spaceText = true;
+                
+                
             }
-
-            
             
             GetComponent<playerActions>().canMove = false;
             GetComponent<playerActions>().camMove = false;
@@ -78,7 +89,10 @@ public class textControler : MonoBehaviour
         {
             if(Input.GetKeyUp(KeyCode.Space))
             {
-                nextText();
+                if(textNum < 42)
+                {
+                    nextText();
+                }
             }
         }
     }
@@ -91,8 +105,7 @@ public class textControler : MonoBehaviour
     public IEnumerator ending()
     {
         yield return new WaitForSeconds(2f);
-        fairy.enabled = true;
-        spaceText = true;
+        
 
         StopCoroutine(ending());
     }

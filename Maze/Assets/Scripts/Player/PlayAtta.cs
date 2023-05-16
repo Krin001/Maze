@@ -55,9 +55,10 @@ public class PlayAtta : MonoBehaviour
             bh.health--;
             bh.flashing();
             Destroy(gameObject);
+            
         }
 
-        if(hit.tag == "Wall" /*|| hit.tag == "Snowball"*/)
+        if(hit.tag == "Wall" || hit.tag == "Ground")
         {
             Destroy(gameObject);
 
